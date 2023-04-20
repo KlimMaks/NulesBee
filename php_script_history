@@ -1,0 +1,43 @@
+<?php
+$id = filter_var(trim($_POST['id']),
+FILTER_SANITIZE_STRING);
+$date_of_start = filter_var(trim($_POST['date_of_start']),
+FILTER_SANITIZE_STRING);
+$birth = filter_var(trim($_POST['birth']),
+FILTER_SANITIZE_STRING);
+$birthYear = filter_var(trim($_POST['birthYear']),
+FILTER_SANITIZE_STRING);
+$power = filter_var(trim($_POST['power']),
+FILTER_SANITIZE_STRING);
+$honey = filter_var(trim($_POST['honey']),
+FILTER_SANITIZE_STRING);
+$wax = filter_var(trim($_POST['wax']),
+FILTER_SANITIZE_STRING);
+$comb = filter_var(trim($_POST['comb']),
+FILTER_SANITIZE_STRING);
+$vosh = filter_var(trim($_POST['vosh']),
+FILTER_SANITIZE_STRING);
+$frame = filter_var(trim($_POST['frame']),
+FILTER_SANITIZE_STRING);
+$thermal = filter_var(trim($_POST['thermal']),
+FILTER_SANITIZE_STRING);
+$pict = filter_var(trim($_POST['pict']),
+FILTER_SANITIZE_STRING);
+$description = filter_var(trim($_POST['description']),
+FILTER_SANITIZE_STRING);
+$locName = filter_var(trim($_POST['locName']),
+FILTER_SANITIZE_STRING);
+
+$date = date('Y-m-d H:i:s');
+$added = "Додано";
+require('db.php');
+
+/*$mysql -> query("INSERT INTO `history` (`date_time`, `locName`, `date_of_start`, `quennBday`, `quennBdayPlace`, `honey`, `wax`, `hiveQuantity`, `status`) 
+	VALUES('$date', '$locName', '$date_of_start', '$quennBday', '$quennBdayPlace', '$honey', '$wax', '$hiveQuantity', '$added')"); */
+$mysql -> query("INSERT INTO `hive` (`date_of_start`, `birth`, `birthYear`, `power`, `honey`, `wax`, `comb`, `vosh`, `frame`, `thermal`, `pict`, `description`, `locName`)
+	VALUES('$date_of_start', '$birth', '$birthYear', '$power', '$honey', '$wax', '$comb', '$vosh', '$frame', '$thermal', '$pict', '$description', '$locName')");
+$mysql -> close();
+header('Location: view.php');
+?>
+
+<!--
