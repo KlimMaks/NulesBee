@@ -1,0 +1,2 @@
+$mysql -> query("INSERT INTO `history` (`date_time`, `locName`, `date_of_start`, `quennBday`, `quennBdayPlace`, `honey`, `wax`, `hiveQuantity`, `status`) 
+	VALUES('$date', '$locName', '$date_of_start', '$quennBday', '$quennBdayPlace', '$honey', '$wax', '$hiveQuantity', '$added')");
